@@ -1,0 +1,1 @@
+// fetches current week view and search bar
