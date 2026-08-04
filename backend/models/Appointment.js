@@ -2,13 +2,24 @@ import mongoose from "mongoose";
 
 const appointmentSchema = new mongoose.Schema(
   {
-    date: { type: Date, required: true },
-    reason: { type: String, required: true, trim: true },
-    status: {
-      enum: ["scheduled", "confirmed", "cancelled"],
-      default: "scheduled",
+    date: { 
+      type: Date, 
+      required: true 
     },
-    notes: { type: String, trim: true },
+    reason: { 
+      type: String, 
+      required: true, 
+      trim: true
+     },
+    status: {
+      type: String,
+      enum: ["Planned", "Confirmed", "Cancelled"],
+      default: "Planned",
+    },
+    notes: { 
+      type: String,
+      trim: true 
+      },
     client: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Client",
@@ -19,6 +30,10 @@ const appointmentSchema = new mongoose.Schema(
       ref: "Pet",
       required: true,
     },
+    visitType: {
+      type: String,
+      enum: ["wellness/Vaccines", "Sick", "Recheck", "Nurse"]
+    }
   },
   { timestamps: true },
 );
