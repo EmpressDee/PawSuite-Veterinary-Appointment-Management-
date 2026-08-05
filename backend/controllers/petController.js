@@ -35,3 +35,20 @@ export const createPet = async (req,res,next) => {
         next(err);
     }
 }
+
+//PUT 
+export const updatePet = async (req,res,next) => {
+    try {
+        const updatedPet = await Pet.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            {new: true, runValidators: true}
+        );
+        if (!updatedPet) {
+            return res.status(404).json({ message: "Not found"})
+        }
+        res.status(200).json(updatedPet);
+    } catch (err) {
+        next(err);
+    }
+}
