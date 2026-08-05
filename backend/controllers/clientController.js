@@ -20,3 +20,41 @@ export const getClientById = async (req,res,next) => {
         next(err);
     }
 }
+
+export const createClient = async (req,res,next) => {
+    try {
+        const newClient = await Client.create(req.body);
+        res.status(201).json(newClient);
+    } catch (err) {
+        next(err);
+    }
+}
+
+
+export const updateClient = async (req,res,next) => {
+    try {
+        const updatedClient = await Client.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            {new: true, runValidators: true}
+        );
+        if (!updatedClient) {
+            return res.status(404).json({ message: "Not found"})
+        }
+        res.status(200).json(updatedClient);
+    } catch (err) {
+        next(err);
+    }
+}
+
+export const deleteClient = async (req,res,next) => {
+    try {
+        const deletedClient = await Client.findByIdAndDelete(req.params.id);
+        if (!deletedClient) {
+            return res.status(404).json({ message: "Not found"});
+        }
+        res.status(200).json({ message: "Successfully deleted", id: req.params.id });
+    } catch (err) {
+        next(err);
+    }
+}
