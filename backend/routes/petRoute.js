@@ -3,3 +3,10 @@ import { getAllPets, getPetById, createPet, deletePet, updatePet} from "../contr
 
 const router = express.router();
 
+router.get("/", getAllPets);
+router.get("/:id", getPetById);
+router.post("/", createPet);
+router.patch("/:id", updatePet);
+router.delete("/:id", deletePet);
+
+export default router;
