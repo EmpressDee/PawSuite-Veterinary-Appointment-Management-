@@ -27,4 +27,11 @@ export const getPetById = async (req,res,next) => {
 
 //POST
 
-
+export const createPet = async (req,res,next) => {
+    try {
+        const newPet = await Pet.create(req.body);
+        res.status(201).json(newPet);
+    } catch (err) {
+        next(err);
+    }
+}
