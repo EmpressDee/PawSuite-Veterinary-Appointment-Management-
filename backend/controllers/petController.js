@@ -52,3 +52,15 @@ export const updatePet = async (req,res,next) => {
         next(err);
     }
 }
+
+export const deletePet = async (req,res,next) => {
+    try {
+        const deletedPet = await Pet.findByIdAndDelete(req.params.id);
+        if (!deletedPet) {
+            return res.status(404).json({ message: "Not found"});
+        }
+        res.status(200).json({ message: "Successfully deleted", id: req.params.id });
+    } catch (err) {
+        next(err);
+    }
+}
