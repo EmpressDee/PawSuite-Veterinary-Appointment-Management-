@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const clientSchema = new mongoose.Schema({
+
   firstName: { type: String, required: true, trim: true },
   lastName: { type: String, required: true, trim: true },
   email: { type: String, 
@@ -13,8 +14,11 @@ const clientSchema = new mongoose.Schema({
     trim: true,
 
   },
-});
+}); { timestamps: true };
 
 clientSchema.index({ lastName: 1, firstName: 1 });
 
-export default mongoose.model("Client, clientSchema");
+const Client = mongoose.model("Client", clientSchema);
+
+
+export default Client;

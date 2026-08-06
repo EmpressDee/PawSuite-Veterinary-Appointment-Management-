@@ -1,26 +1,28 @@
 import Appointment from "../models/Appointment.js";
 
-export const getAllAppointments = async (req,res,next) => {
+export const getAllAppointments = async (req, res, next) => {
     try {
-        const appts = await Appointment.find();
+        const { start, end } = req.query;
+        const filter = start && end ? { date: { $gte: start, $lte: end } } : {};
+
+        const appts = await Appointment.find(filter).populate('client pet');
         res.status(200).json(appts);
     } catch (err) {
         next(err);
     }
 }
 
-export const getApptById = async (req,res,next) => {
+export const getApptById = async (req, res, next) => {
     try {
-        const appt = await Appointment.findById(req.params.id);
+        const appt = await Appointment.findById(req.params.id).populate('client pet');
         if (!appt) {
-            return res.status(404).json({ message: "Not found"});
+            return res.status(404).json({ message: "Not found" });
         }
         res.status(200).json(appt);
     } catch (err) {
         next(err);
     }
 }
-
 export const createAppt = async (req,res,next) => {
     try {
         const newAppt = await Appointment.create(req.body);

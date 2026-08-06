@@ -1,6 +1,6 @@
 //logic for CRUD goes here
 
-import Pet from "./models/Pet.js";
+import Pet from "../models/Pet.js";
 
 //GET
 export const getAllPets = async (req,res,next) => {
