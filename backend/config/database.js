@@ -44,6 +44,31 @@ const dataDB = async () => {
         email: "vikingpride@gmail.com",
         phone: "718-555-0727",
       },
+       {
+        name: "Susie Bones",
+        email: "SHBones25@yahoo.com",
+        phone: "718-500-0797",
+      },
+       {
+        name: "Jerome Johnson",
+        email: "JusJohnson1@gmail.com",
+        phone: "876-235-3470",
+      },
+       {
+        name: "Alexandria Pattel",
+        email: "pattel_Alex@outlook.com",
+        phone: "302-666-4727",
+      },
+       {
+        name: "Bjorn Ironside",
+        email: "kattegatking@gmail.com",
+        phone: "862-298-1009",
+      },
+       {
+        name: "Misty Lewis",
+        email: "watergym87@gmail.com",
+        phone: "917-555-8334",
+      },
     ]);
     console.log(`${clients.length} clients data imported`);
 
@@ -71,7 +96,7 @@ const dataDB = async () => {
         name: "Mr Darcy",
         species: "cat",
         breed: "Bengal",
-        owner: clients[4]._id,
+        owner: clients[10]._id,
       },
       {
         name: "Luna",
@@ -97,11 +122,48 @@ const dataDB = async () => {
         breed: "Poodle",
         owner: clients[2]._id,
       },
+       {
+        name: "Fluffers",
+        species: "rabbit",
+        breed: "dwarf",
+        owner: clients[5]._id,
+      },
+       {
+        name: "Butterfree",
+        species: "cat",
+        breed: "DSH",
+        owner: clients[7]._id,
+      },
+       {
+        name: "Biggie",
+        species: "dog",
+        breed: "Rottweiler",
+        owner: clients[8]._id,
+      },
+       {
+        name: "Smaug",
+        species: "reptile",
+        breed: "Bearded Dragon",
+        owner: clients[6]._id,
+      },
+       {
+        name: "Popcorn",
+        species: "rabbit",
+        breed: "English Angora",
+        owner: clients[9]._id,
+      },
     ]);
 
     console.log(`${pets.length} pets data imported`);
 
     //appt data references pet[i]._id
+    const relativeDate = (offsetDays) => {
+      const date = new Date();
+      date.setDate(date.getDate() + offsetDays);
+      return date;
+    };
+     //removing hardcoded dates
+
     const appointments = await Appointment.insertMany([
       {
         date: new Date("2026-07-20"),
