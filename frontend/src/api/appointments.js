@@ -1,9 +1,9 @@
 import api from './axios.js';
 
-export const fetchAppointments = (start, end) =>
+export const getAppointments = (start, end) =>
   api.get(`/appointments?start=${start}&end=${end}`);
 
-export const fetchAppointmentById = (id) =>
+export const getAppointmentById = (id) =>
   api.get(`/appointments/${id}`);
 
 export const createAppointment = (data) =>
