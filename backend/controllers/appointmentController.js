@@ -1,6 +1,7 @@
 import Appointment from "../models/Appointment.js";
 
 export const getAllAppointments = async (req, res, next) => {
+    console.log("getAllAppointments")
     try {
         const { start, end } = req.query;
         const filter = start && end ? { date: { $gte: start, $lte: end } } : {};

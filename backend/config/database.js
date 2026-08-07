@@ -192,7 +192,7 @@ const dataDB = async () => {
     reason: "Vaccination",
     pet: pets[1]._id,
     client: pets[1].owner,
-    status: "confirmed",
+    status: "Confirmed",
   },
   {
     date: relativeDate(2),
@@ -208,7 +208,7 @@ const dataDB = async () => {
     visitType: "Sick",
     pet: pets[3]._id,
     client: pets[3].owner,
-    status: "cancelled",
+    status: "Cancelled",
   },
   {
     date: relativeDate(3),
@@ -224,7 +224,7 @@ const dataDB = async () => {
     visitType: "Nurse",
     pet: pets[5]._id,
     client: pets[5].owner,
-    status: "confirmed",
+    status: "Confirmed",
   },
   {
     date: relativeDate(4),

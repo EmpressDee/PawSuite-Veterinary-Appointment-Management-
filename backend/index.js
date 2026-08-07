@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/connection.js"
 import appointmentRoute from "./routes/appointmentRoute.js";
@@ -9,6 +10,8 @@ import {errorHandler} from "./middleware/errorHandling.js"
 
 const app = express ();
 const port = 3000;
+
+app.use(cors());
 
 dotenv.config();
 connectDB();
