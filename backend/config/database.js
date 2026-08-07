@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import Client from "./models/Client.js";
-import Pet from "./models/Pet.js";
-import Appointment from "./models/Appointment.js";
+import Client from "../models/Client.js";
+import Pet from "../models/Pet.js";
+import Appointment from "../models/Appointment.js";
 
 dotenv.config();
 
@@ -18,54 +18,65 @@ const dataDB = async () => {
     // create client data
 
     const clients = await Client.insertMany([
-      { name: "Mary Smith", 
+      { firstName: "Mary",
+        lastName: "Smith",                                
         email: "msmith@gmail.com", 
         phone: "718-555-0101" },
       {
-        name: "Annabelle Johnson",
+        firstName: "Annabelle",
+        lastName: "Johnson",
         email: "anna_johnson@yahoo.com",
         phone: "917-555-0202",
       },
-      { name: "Jim Halpert", 
+      { firstName: "Jim", 
+        lastName: "Halpert",
         email: "itsjim@aol.com", 
         phone: "718-235-3470" },
       {
-        name: "John Wick",
+        firstName: "John",
+        lastName: "Wick",
         email: "wick_john@gmail.com",
         phone: "347-235-4560",
       },
       {
-        name: "Harry Potter",
+        firstName: "Harry",
+        lastName: "Potter",
         email: "theboywholived@gmail.com",
         phone: "917-445-0727",
       },
       {
-        name: "Ragnar Lothbrok",
+        firstName: "Ragnar",
+        lastName: "Lothbrok",
         email: "vikingpride@gmail.com",
         phone: "718-555-0727",
       },
        {
-        name: "Susie Bones",
+        firstName: "Susie",
+        lastName:"Bones",
         email: "SHBones25@yahoo.com",
         phone: "718-500-0797",
       },
        {
-        name: "Jerome Johnson",
+        firstName: "Jerome",
+        lastName: "Johnson",
         email: "JusJohnson1@gmail.com",
         phone: "876-235-3470",
       },
        {
-        name: "Alexandria Pattel",
+        firstName: "Alexandria",
+        lastName: "Pattel",
         email: "pattel_Alex@outlook.com",
         phone: "302-666-4727",
       },
        {
-        name: "Bjorn Ironside",
+        firstName: "Bjorn",
+        lastName: "Ironside",
         email: "kattegatking@gmail.com",
         phone: "862-298-1009",
       },
        {
-        name: "Misty Lewis",
+        firstName: "Misty",
+        lastName: "Lewis",
         email: "watergym87@gmail.com",
         phone: "917-555-8334",
       },
@@ -168,84 +179,84 @@ const dataDB = async () => {
 
     const appointments = await Appointment.insertMany([
   {
-    date: getRelativeDate(0), // todays date
+    date: relativeDate(0), // todays date
     visitType: "Wellness/Vaccines",
     reason: "Annual checkup",
     pet: pets[0]._id,
     status: "Planned",
   },
   {
-    date: getRelativeDate(1), 
+    date: relativeDate(1), 
     visitType: "Wellness/Vaccines",
     reason: "Vaccination",
     pet: pets[1]._id,
     status: "confirmed",
   },
   {
-    date: getRelativeDate(2),
+    date: relativeDate(2),
     visitType: "Nurse",
     reason: "Nail trim",
     pet: pets[2]._id,
     status: "Planned",
   },
   {
-    date: getRelativeDate(-1), // previous day
+    date: relativeDate(-1), // previous day
     reason: "Skin issue follow-up",
     visitType: "Sick",
     pet: pets[3]._id,
     status: "cancelled",
   },
   {
-    date: getRelativeDate(3),
+    date: relativeDate(3),
     reason: "Spay/neuter consult",
     visitType: "Wellness/Vaccines",
     pet: pets[4]._id,
     status: "Planned",
   },
   {
-    date: getRelativeDate(-2),
+    date: relativeDate(-2),
     reason: "Bloodwork",
     visitType: "Nurse",
     pet: pets[5]._id,
     status: "confirmed",
   },
   {
-    date: getRelativeDate(4),
+    date: relativeDate(4),
     reason: "Shedding check",
     visitType: "Sick",
     pet: pets[6]._id,
     status: "Planned",
   },
   {
-    date: getRelativeDate(5),
+    date: relativeDate(5),
     reason: "Ear infection",
     visitType: "Sick",
     pet: pets[7]._id,
     status: "Planned",
   },
    {
-    date: getRelativeDate(3),
+    date: relativeDate(3),
     reason: "Not eating",
     visitType: "Sick",
     pet: pets[9]._id,
     status: "Planned",
   },
    {
-    date: getRelativeDate(-1),
+    date: relativeDate(-1),
     reason: "post op check",
     visitType: "Recheck",
     pet: pets[10]._id,
     status: "Cancelled",
   },
    {
-    date: getRelativeDate(3),
+    date: relativeDate(3),
     reason: "Annual visit",
     visitType: "Wellness/Vaccines",
     pet: pets[11]._id,
     status: "Confirmed",
   },
    {
-    date: getRelativeDate(6),
+    date: relativeDate(6),
     reason: "teeth trim",
     visitType: "Nurse",
     pet: pets[12]._id,
