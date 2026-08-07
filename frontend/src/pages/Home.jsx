@@ -11,14 +11,19 @@ function HomePage () {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
+    useEffect(() => {   
+        getAppointments()
+        .then((response) => {
+            setAppointments(response.data);
+            setLoading(false);
+        });
 
     })
     .catch((err) => {
         setError(err.message);
         setLoading(false);
     });
-}, []);
+}[];
 
 
 export default HomePage
