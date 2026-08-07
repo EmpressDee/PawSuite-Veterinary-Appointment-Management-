@@ -10,6 +10,7 @@ export default function Pets (){
     async function getPets() {
       try {
         const response = await fetchPets();
+        console.log(response.data);
         setPets(response.data);
         setLoading(false);
       } catch (err) {
@@ -28,7 +29,7 @@ export default function Pets (){
         <div className="pet-page">
 {pets.map((pet) => (
                 <div key={pet._id}>
-                    <p>{pet.firstName} {pet.lastName}</p>
+                    <p>{pet.name} {pet.species}</p>
                 </div>
             ))}
 
