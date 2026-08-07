@@ -1,6 +1,6 @@
 import api from "./axios.js";
 
-export const getAppointments = (start, end) =>
+export const getAppointments = (start="", end="") =>
   api.get(`/appointments?start=${start}&end=${end}`);
 
 export const getAppointmentById = (id) =>
