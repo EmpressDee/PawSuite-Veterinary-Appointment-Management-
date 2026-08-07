@@ -183,6 +183,7 @@ const dataDB = async () => {
     visitType: "Wellness/Vaccines",
     reason: "Annual checkup",
     pet: pets[0]._id,
+    client: pets[0].owner,
     status: "Planned",
   },
   {
@@ -190,6 +191,7 @@ const dataDB = async () => {
     visitType: "Wellness/Vaccines",
     reason: "Vaccination",
     pet: pets[1]._id,
+    client: pets[1].owner,
     status: "confirmed",
   },
   {
@@ -197,6 +199,7 @@ const dataDB = async () => {
     visitType: "Nurse",
     reason: "Nail trim",
     pet: pets[2]._id,
+    client: pets[2].owner,
     status: "Planned",
   },
   {
@@ -204,6 +207,7 @@ const dataDB = async () => {
     reason: "Skin issue follow-up",
     visitType: "Sick",
     pet: pets[3]._id,
+    client: pets[3].owner,
     status: "cancelled",
   },
   {
@@ -211,6 +215,7 @@ const dataDB = async () => {
     reason: "Spay/neuter consult",
     visitType: "Wellness/Vaccines",
     pet: pets[4]._id,
+    client: pets[4].owner,
     status: "Planned",
   },
   {
@@ -218,6 +223,7 @@ const dataDB = async () => {
     reason: "Bloodwork",
     visitType: "Nurse",
     pet: pets[5]._id,
+    client: pets[5].owner,
     status: "confirmed",
   },
   {
@@ -225,6 +231,7 @@ const dataDB = async () => {
     reason: "Shedding check",
     visitType: "Sick",
     pet: pets[6]._id,
+    client: pets[6].owner,
     status: "Planned",
   },
   {
@@ -232,6 +239,7 @@ const dataDB = async () => {
     reason: "Ear infection",
     visitType: "Sick",
     pet: pets[7]._id,
+    client: pets[7].owner,
     status: "Planned",
   },
    {
@@ -239,6 +247,7 @@ const dataDB = async () => {
     reason: "Not eating",
     visitType: "Sick",
     pet: pets[9]._id,
+    client: pets[9].owner,
     status: "Planned",
   },
    {
@@ -246,6 +255,7 @@ const dataDB = async () => {
     reason: "post op check",
     visitType: "Recheck",
     pet: pets[10]._id,
+    client: pets[10].owner,
     status: "Cancelled",
   },
    {
@@ -253,6 +263,7 @@ const dataDB = async () => {
     reason: "Annual visit",
     visitType: "Wellness/Vaccines",
     pet: pets[11]._id,
+    client: pets[11].owner,
     status: "Confirmed",
   },
    {
@@ -260,6 +271,7 @@ const dataDB = async () => {
     reason: "teeth trim",
     visitType: "Nurse",
     pet: pets[12]._id,
+    client: pets[12].owner,
     status: "Cancelled",
   },
 ]);
