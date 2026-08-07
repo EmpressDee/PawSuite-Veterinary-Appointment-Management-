@@ -25,5 +25,36 @@ function HomePage () {
     });
 }[];
 
+ const filteredAppointments = appointments.filter((appt) => {
+    const search = filterText.toLowerCase();
+    return (
+      appt.client?.firstName?.toLowerCase().includes(search) ||
+      appt.client?.lastName?.toLowerCase().includes(search) ||
+      appt.pet?.name?.toLowerCase().includes(search)
+    );
+  });
+
+  if (loading) return <p>Loading appointments...</p>;
+  if (error) return <p>Error: {error}</p>;
+
+  return (
+    <div>
+      <h1>This Week's Appointments</h1>
+      <SearchBar filterText={filterText} setFilterText={setFilterText} />
+
+      {filteredAppointments.map((appt) => (
+        <Link key={appt._id} to={`/appointments/${appt._id}`}> 
+          <div>
+            <p>{appt.pet?.name} — {appt.client?.firstName} {appt.client?.lastName}</p>
+            { <p>{new Date(appt.date).toLocaleDateString()} — {appt.visitType}</p>   /*.tolocaleDateString returns the date portion converting to local time zone*/}
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
+
+
+
+
 
 export default HomePage
