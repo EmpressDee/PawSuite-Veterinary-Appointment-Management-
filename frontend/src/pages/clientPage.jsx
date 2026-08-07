@@ -3,13 +3,21 @@ import { getClients } from "../api/clients";
 
 export default function Clients() {
   const [clients, setClients] = useState([]);
+   const [loading, setLoading] = useState(true);
+   const [error, setError] = useState(null)
 
-  useEffect(() => {
-    async function getClients() {
-      const data = await getClients();
-      setClients(data);
+ useEffect(() => {
+    async function loadClients() {
+      try {
+        const response = await getClients();
+        setClients(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
     }
-    getClients();
+    loadClients();
   }, []);
 
   return (

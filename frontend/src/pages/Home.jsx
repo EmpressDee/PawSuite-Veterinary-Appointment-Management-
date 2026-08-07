@@ -43,10 +43,11 @@ function HomePage() {
         <p className="page-subtitle">View and manage upcoming appointments</p>
         <SearchBar filterText={filterText} setFilterText={setFilterText} />
       </header>
-      
 
+ {/* create appt container  */}
+      <main className="appts-container"></main>
       {filteredAppointments.map((appt) => (
-        <Link key={appt._id} to={`/appointments/${appt._id}`}>
+        <Link key={appt._id} to={`/appointments/${appt._id}`} className="appt-card">
           <div>
             <p>
               {appt.pet?.name} — {appt.client?.firstName}{" "}
