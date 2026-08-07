@@ -6,7 +6,7 @@ const petSchema = new mongoose.Schema(
     species: { type: String, required: true, trim: true },
     breed: { type: String, trim: true },
     dateOfBirth: { type: Date },
-    client: {
+    owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Client",
       required: true
