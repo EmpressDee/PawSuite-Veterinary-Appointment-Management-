@@ -32,7 +32,7 @@ const appointmentSchema = new mongoose.Schema(
     },
     visitType: {
       type: String,
-      enum: ["wellness/Vaccines", "Sick", "Recheck", "Nurse"]
+      enum: ["Wellness/Vaccines", "Sick", "Recheck", "Nurse"]
     }
   },
   { timestamps: true },

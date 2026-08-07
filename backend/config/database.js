@@ -71,11 +71,12 @@ const dataDB = async () => {
       },
     ]);
     console.log(`${clients.length} clients data imported`);
+//===============================================================================================================================================//
 
     // create pet data references clients[i]._id
     const pets = await Pet.insertMany([
       {
-        name: "Bluey",
+        name: "Bluey",  
         species: "cat",
         breed: "Ragdoll",
         owner: clients[1]._id,
@@ -155,6 +156,7 @@ const dataDB = async () => {
     ]);
 
     console.log(`${pets.length} pets data imported`);
+//==============================================================================================================================================================//
 
     //appt data references pet[i]._id
     const relativeDate = (offsetDays) => {
@@ -165,55 +167,91 @@ const dataDB = async () => {
      //removing hardcoded dates
 
     const appointments = await Appointment.insertMany([
-      {
-        date: new Date("2026-07-20"),
-        reason: "Annual checkup",
-        pet: pets[0]._id,
-        status: "scheduled",
-      },
-      {
-        date: new Date("2026-07-21"),
-        reason: "Vaccination",
-        pet: pets[1]._id,
-        status: "confirmed",
-      },
-      {
-        date: new Date("2026-07-22"),
-        reason: "Nail trim",
-        pet: pets[2]._id,
-        status: "scheduled",
-      },
-      {
-        date: new Date("2026-07-23"),
-        reason: "Skin issue follow-up",
-        pet: pets[3]._id,
-        status: "cancelled",
-      },
-      {
-        date: new Date("2026-07-24"),
-        reason: "Spay/neuter consult",
-        pet: pets[4]._id,
-        status: "scheduled",
-      },
-      {
-        date: new Date("2026-07-25"),
-        reason: "Bloodwork",
-        pet: pets[5]._id,
-        status: "confirmed",
-      },
-      {
-        date: new Date("2026-07-26"),
-        reason: "Shedding check",
-        pet: pets[6]._id,
-        status: "scheduled",
-      },
-      {
-        date: new Date("2026-07-27"),
-        reason: "Ear infection",
-        pet: pets[7]._id,
-        status: "scheduled",
-      },
-    ]);
+  {
+    date: getRelativeDate(0), // todays date
+    visitType: "Wellness/Vaccines",
+    reason: "Annual checkup",
+    pet: pets[0]._id,
+    status: "Planned",
+  },
+  {
+    date: getRelativeDate(1), 
+    visitType: "Wellness/Vaccines",
+    reason: "Vaccination",
+    pet: pets[1]._id,
+    status: "confirmed",
+  },
+  {
+    date: getRelativeDate(2),
+    visitType: "Nurse",
+    reason: "Nail trim",
+    pet: pets[2]._id,
+    status: "Planned",
+  },
+  {
+    date: getRelativeDate(-1), // previous day
+    reason: "Skin issue follow-up",
+    visitType: "Sick",
+    pet: pets[3]._id,
+    status: "cancelled",
+  },
+  {
+    date: getRelativeDate(3),
+    reason: "Spay/neuter consult",
+    visitType: "Wellness/Vaccines",
+    pet: pets[4]._id,
+    status: "Planned",
+  },
+  {
+    date: getRelativeDate(-2),
+    reason: "Bloodwork",
+    visitType: "Nurse",
+    pet: pets[5]._id,
+    status: "confirmed",
+  },
+  {
+    date: getRelativeDate(4),
+    reason: "Shedding check",
+    visitType: "Sick",
+    pet: pets[6]._id,
+    status: "Planned",
+  },
+  {
+    date: getRelativeDate(5),
+    reason: "Ear infection",
+    visitType: "Sick",
+    pet: pets[7]._id,
+    status: "Planned",
+  },
+   {
+    date: getRelativeDate(3),
+    reason: "Not eating",
+    visitType: "Sick",
+    pet: pets[9]._id,
+    status: "Planned",
+  },
+   {
+    date: getRelativeDate(-1),
+    reason: "post op check",
+    visitType: "Recheck",
+    pet: pets[10]._id,
+    status: "Cancelled",
+  },
+   {
+    date: getRelativeDate(3),
+    reason: "Annual visit",
+    visitType: "Wellness/Vaccines",
+    pet: pets[11]._id,
+    status: "Confirmed",
+  },
+   {
+    date: getRelativeDate(6),
+    reason: "teeth trim",
+    visitType: "Nurse",
+    pet: pets[12]._id,
+    status: "Cancelled",
+  },
+]);
     console.log(`${appointments.length} appointments data imported`);
     process.exit(0);
   } catch (err) {
