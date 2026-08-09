@@ -1,4 +1,5 @@
 // fetches current week view and search bar
+import "./Home.css";
 import { useState, useEffect } from "react";
 import { getAppointments } from "../api/appointments.js";
 import SearchBar from "../components/SearchBar.jsx";
@@ -25,12 +26,29 @@ function HomePage() {
 
   const filteredAppointments = appointments.filter((appt) => {
     const search = filterText.toLowerCase();
+  
     return (
       appt.client?.firstName?.toLowerCase().includes(search) ||
       appt.client?.lastName?.toLowerCase().includes(search) ||
       appt.pet?.name?.toLowerCase().includes(search)
     );
   });
+
+   //grouping appts by date so i can have a more calendar like look
+    // .reduce(accumulator, currentValue)
+    const groupByDate = filteredAppointments.reduce((groups, appt) =>{  
+      const dateKey = new Date(appt.date).toLocaleDateString("en-US",//making a date label. Format the date
+         {
+        weekday: "long",
+        month: "long",
+        day: "numeric",
+      });
+      if (!groups[dateKey]) {
+        groups[dateKey] = [];
+      }
+      groups[dateKey].push(appt);
+      return groups;
+    }, {});
 
   if (loading) return <p>Loading appointments...</p>;
 
@@ -39,28 +57,29 @@ function HomePage() {
   return (
     <div className="app">
       <header className="page-header">
-        <h1>This Week's Appointments</h1>
+        <h1>Schedule</h1>
         <p className="page-subtitle">View and manage upcoming appointments</p>
         <SearchBar filterText={filterText} setFilterText={setFilterText} />
       </header>
 
  {/* create appt container  */}
-      <main className="appts-container"></main>
-      {filteredAppointments.map((appt) => (
+ <main className="appts-container">
+  {Object.entries(groupByDate).map(([date, appts]) => (
+    <div key={date} className="day-group">
+      <h2 className="day-heading">{date}</h2>
+      {appts.map((appt) => (
         <Link key={appt._id} to={`/appointments/${appt._id}`} className="appt-card">
           <div>
             <p>
-              {appt.pet?.name} — {appt.client?.firstName}{" "}
-              {appt.client?.lastName}
+              {appt.pet?.name} — {appt.client?.firstName} {appt.client?.lastName}
             </p>
-            {
-              <p>
-                {new Date(appt.date).toLocaleDateString()} — {appt.visitType}
-              </p>
-            }
+            <p>{appt.visitType}</p>
           </div>
         </Link>
       ))}
+    </div>
+  ))}
+</main>
     </div>
   );
 }
