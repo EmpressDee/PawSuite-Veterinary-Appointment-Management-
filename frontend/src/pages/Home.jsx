@@ -27,7 +27,7 @@ function HomePage() {
 
   const filteredAppointments = appointments.filter((appt) => {
     const search = filterText.toLowerCase();
-  
+
     return (
       appt.client?.firstName?.toLowerCase().includes(search) ||
       appt.client?.lastName?.toLowerCase().includes(search) ||
@@ -35,35 +35,53 @@ function HomePage() {
     );
   });
 
-// creating icon function so species get corresponding picture
+  // creating icon function so species get corresponding picture
   function getSpeciesIcon(species) {
-  switch (species?.toLowerCase()) {
-    case "dog":
-      return <Dog size={20} />;
-    case "cat":
-      return <Cat size={20} />;
-    case "rabbit":
-      return <Rabbit size={20} />;
-    default:
-      return <PawPrint size={20} />; 
+    switch (species?.toLowerCase()) {
+      case "dog":
+        return <Dog size={20} />;
+      case "cat":
+        return <Cat size={20} />;
+      case "rabbit":
+        return <Rabbit size={20} />;
+      default:
+        return <PawPrint size={20} />;
+    }
   }
-}
 
-   //grouping appts by date so i can have a more calendar like look
-    // .reduce(accumulator, currentValue)
-    const groupByDate = filteredAppointments.reduce((groups, appt) =>{  
-      const dateKey = new Date(appt.date).toLocaleDateString("en-US",//making a date label. Format the date
-         {
+  // function to assign color to visit types based on type
+  function getVisitTypeClass(visitType) {
+    switch (visitType) {
+      case "Wellness/Vaccines":
+        return "badge-wellness";
+      case "Sick":
+        return "badge-sick";
+      case "Nurse":
+        return "badge-nurse";
+      case "Recheck":
+        return "badge-recheck";
+      default:
+        return "badge-default";
+    }
+  }
+
+  //grouping appts by date so i can have a more calendar like look
+  // .reduce(accumulator, currentValue)
+  const groupByDate = filteredAppointments.reduce((groups, appt) => {
+    const dateKey = new Date(appt.date).toLocaleDateString(
+      "en-US", //making a date label. Format the date
+      {
         weekday: "long",
         month: "long",
         day: "numeric",
-      });
-      if (!groups[dateKey]) {
-        groups[dateKey] = [];
-      }
-      groups[dateKey].push(appt);
-      return groups;
-    }, {});
+      },
+    );
+    if (!groups[dateKey]) {
+      groups[dateKey] = [];
+    }
+    groups[dateKey].push(appt);
+    return groups;
+  }, {});
 
   if (loading) return <p>Loading appointments...</p>;
 
@@ -77,33 +95,39 @@ function HomePage() {
         <SearchBar filterText={filterText} setFilterText={setFilterText} />
       </header>
 
-      
+      {/* create appt container  */}
+      {/* Need to fix the dates to show in order...maybe use .sort() method */}
+      <main className="appts-container">
+        {Object.entries(groupByDate).map(([date, appts]) => (
+          <div key={date} className="day-group">
+            <h2 className="day-heading">{date}</h2>
+            {appts.map((appt) => (
+              <Link
+                key={appt._id}
+                to={`/appointments/${appt._id}`}
+                className="appt-card"
+              >
+                <div className="appt-card-content">
+                  <div className="appt-card-icon">
+                    {getSpeciesIcon(appt.pet?.species)}
+                  </div>
+                  <div>
+                    <h3 className="appt-pet-name">{appt.pet?.name} </h3>
 
- {/* create appt container  */}
- {/* Need to fix the dates to show in order...maybe use .sort() method */}
- <main className="appts-container">
-  {Object.entries(groupByDate).map(([date, appts]) => (
-    <div key={date} className="day-group">
-      <h2 className="day-heading">{date}</h2>
-      {appts.map((appt) => (
-        <Link key={appt._id} to={`/appointments/${appt._id}`} className="appt-card">
-          <div className="appt-card-content">
-            <div className="appt-card-icon">
-            {getSpeciesIcon(appt.pet?.species)}
+                    <p>
+                      {appt.client?.firstName} {appt.client?.lastName}
+                    </p>
+                    <span
+                      className={`visit-badge ${getVisitTypeClass(appt.visitType)}`}>
+                      {appt.visitType}
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
-          <div>
-            
-            <h3 className="appt-pet-name">{appt.pet?.name} </h3>
-              
-            <p>{appt.client?.firstName} {appt.client?.lastName}</p>
-            <p>{appt.visitType}</p>
-          </div>
-          </div>
-        </Link>
-      ))}
-    </div>
-  ))}
-</main>
+        ))}
+      </main>
     </div>
   );
 }

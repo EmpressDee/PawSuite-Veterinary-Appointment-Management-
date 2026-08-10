@@ -28,3 +28,35 @@
   color: #0F6E56;
   flex-shrink: 0;
 }
+
+.visit-badge {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.badge-wellness {
+  background: #E1F5EE;
+  color: #085041;
+}
+
+.badge-sick {
+  background: #FAEEDA;
+  color: #854F0B;
+}
+
+.badge-nurse {
+  background: #EEEDFE;
+  color: #3C3489;
+}
+
+.badge-recheck {
+  background: #FBEAF0;
+  color: #72243E;
+}
+
+.badge-default {
+  background: #F1EFE8;
+  color: #5F5E5A;
+}

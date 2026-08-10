@@ -1,0 +1,40 @@
+.pet-page {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pet-card {
+  background: #FFFFFF;
+  border: 1px solid #D3D1C7;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pet-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #E1F5EE;
+  color: #0F6E56;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pet-name {
+  font-weight: 500;
+  font-size: 15px;
+  color: #2C2C2A;
+  margin: 0 0 4px;
+}
+
+.pet-detail {
+  font-size: 13px;
+  color: #5F5E5A;
+  margin: 0;
+}
