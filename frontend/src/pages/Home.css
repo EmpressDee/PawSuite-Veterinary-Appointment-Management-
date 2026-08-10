@@ -1,0 +1,30 @@
+.appts-container {
+    display: flex;
+    flex-direction:column;
+    gap: 8px;
+}
+
+.appt-card {
+    background: white;
+    border: 1px solid #D3D1C7;
+    border-radius: 12px;
+    padding: 16px;
+    text-decoration: none;
+    color: #2C2C2A;
+    display: block;
+}
+
+.appt-card:hover {
+    border-color: #0F6E56;
+}
+
+.appt-card-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.appt-card-icon {
+  color: #0F6E56;
+  flex-shrink: 0;
+}

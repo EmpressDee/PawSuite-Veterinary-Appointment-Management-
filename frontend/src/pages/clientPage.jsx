@@ -3,10 +3,10 @@ import { getClients } from "../api/clients";
 
 export default function Clients() {
   const [clients, setClients] = useState([]);
-   const [loading, setLoading] = useState(true);
-   const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
- useEffect(() => {
+  useEffect(() => {
     async function loadClients() {
       try {
         const response = await getClients();
@@ -25,7 +25,13 @@ export default function Clients() {
       {clients.map((client) => (
         <div key={client._id}>
           <p>
-            {client.firstName} {client.lastName}
+            Name:{client.firstName} {client.lastName}
+            <br />
+            Email:{client.email}
+            <br />
+            Phone: {client.phone}
+            <br />
+            
           </p>
         </div>
       ))}

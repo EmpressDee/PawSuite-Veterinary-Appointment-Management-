@@ -1,0 +1,29 @@
+:root {
+  /* Primary palette — teal (trust, medical, calm) */
+  --color-primary: #0F6E56;       /* deep teal — buttons, active nav, headings */
+  --color-primary-light: #5DCAA5; /* mid teal — accents, hover states */
+  --color-primary-pale: #E1F5EE;  /* pale teal — light backgrounds, badges */
+
+  /* Warm accent — amber (used sparingly, e.g. "sick" status badges) */
+  --color-warm: #FAEEDA;
+  --color-warm-text: #854F0B;
+
+  /* Neutrals — text and structure */
+  --color-text: #2C2C2A;          /* primary text */
+  --color-text-secondary: #5F5E5A; /* muted/secondary text */
+  --color-border: #D3D1C7;        /* card borders, dividers */
+  --color-bg: #F1EFE8;            /* page background */
+  --color-surface: #FFFFFF;       /* card/panel background */
+
+  /* Spacing scale — use these instead of arbitrary px values */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Layout */
+  --sidebar-width: 220px;
+  --radius: 8px;
+  --radius-card: 12px;
+}

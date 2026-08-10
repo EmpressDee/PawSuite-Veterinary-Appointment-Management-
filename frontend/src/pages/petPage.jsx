@@ -29,7 +29,8 @@ export default function Pets (){
         <div className="pet-page">
 {pets.map((pet) => (
                 <div key={pet._id}>
-                    <p>{pet.name} {pet.species}</p>
+                    <p>Name:{pet.name} 
+                      <br />Species:{pet.species}</p>
                 </div>
             ))}
 
