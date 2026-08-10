@@ -8,7 +8,7 @@
     background: white;
     border: 1px solid #D3D1C7;
     border-radius: 12px;
-    padding: 16px;
+    padding: 20px;
     text-decoration: none;
     color: #2C2C2A;
     display: block;
@@ -25,6 +25,13 @@
 }
 
 .appt-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #E1F5EE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #0F6E56;
   flex-shrink: 0;
 }
