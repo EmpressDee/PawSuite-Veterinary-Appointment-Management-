@@ -98,35 +98,41 @@ function HomePage() {
       {/* create appt container  */}
       {/* Need to fix the dates to show in order...maybe use .sort() method */}
       <main className="appts-container">
-        {Object.entries(groupByDate).map(([date, appts]) => (
-          <div key={date} className="day-group">
-            <h2 className="day-heading">{date}</h2>
-            {appts.map((appt) => (
-              <Link
-                key={appt._id}
-                to={`/appointments/${appt._id}`}
-                className="appt-card"
-              >
-                <div className="appt-card-content">
-                  <div className="appt-card-icon">
-                    {getSpeciesIcon(appt.pet?.species)}
-                  </div>
-                  <div>
-                    <h3 className="appt-pet-name">{appt.pet?.name} </h3>
+        {Object.entries(groupByDate)
+          .sort(
+            ([, apptsA], [, apptsB]) =>
+              new Date(apptsA[0].date) - new Date(apptsB[0].date),
+          )
+          .map(([date, appts]) => (
+            <div key={date} className="day-group">
+              <h2 className="day-heading">{date}</h2>
+              {appts.map((appt) => (
+                <Link
+                  key={appt._id}
+                  to={`/appointments/${appt._id}`}
+                  className="appt-card"
+                >
+                  <div className="appt-card-content">
+                    <div className="appt-card-icon">
+                      {getSpeciesIcon(appt.pet?.species)}
+                    </div>
+                    <div>
+                      <h3 className="appt-pet-name">{appt.pet?.name} </h3>
 
-                    <p>
-                      {appt.client?.firstName} {appt.client?.lastName}
-                    </p>
-                    <span
-                      className={`visit-badge ${getVisitTypeClass(appt.visitType)}`}>
-                      {appt.visitType}
-                    </span>
+                      <p>
+                        {appt.client?.firstName} {appt.client?.lastName}
+                      </p>
+                      <span
+                        className={`visit-badge ${getVisitTypeClass(appt.visitType)}`}
+                      >
+                        {appt.visitType}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        ))}
+                </Link>
+              ))}
+            </div>
+          ))}
       </main>
     </div>
   );
