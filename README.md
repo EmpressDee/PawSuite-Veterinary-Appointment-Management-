@@ -2,6 +2,21 @@
 
 A full-stack MERN application for managing veterinary clinic appointments. View this week's schedule, search clients and pets, and click into any appointment for full pet and client details.
 
+## Screenshots
+
+### Weekly schedule
+![Home page showing this week's appointments grouped by day](./frontend/src/assets/capstoneScreenshots/Weekly-Appointment.png)
+
+
+### Clients directory
+![Clients list](./frontend/src/assets/capstoneScreenshots/Clients.png)
+
+### Login Page
+![User login](./frontend/src/assets/capstoneScreenshots/Login-Page.png)
+
+### Create User
+![Create user](./frontend/src/assets/capstoneScreenshots/Create-User.png)
+
 ## Features
 
 - **Week view homepage** — see all appointments at a glance
@@ -69,3 +84,6 @@ App runs on `http://localhost:5173`.
 | POST | `/api/appointments` | Create an appointment |
 | PUT | `/api/appointments/:id` | Update an appointment |
 | DELETE | `/api/appointments/:id` | Delete an appointment
+
+trello link
+https://trello.com/b/VRumwtWW/my-trello-board
