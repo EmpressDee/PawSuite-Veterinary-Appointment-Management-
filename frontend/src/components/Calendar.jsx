@@ -54,6 +54,54 @@ export default function ApptCalendar() {
       });
   }, []);
 
+   const moveEvent = ({ event, start, end, isAllDay: droppedOnAllDaySlot = false }) => {
+    const { allDay } = event;
+    let updatedAllDay = allDay;
+
+    if (!allDay && droppedOnAllDaySlot) {
+      updatedAllDay = true;
+    } else if (allDay && !droppedOnAllDaySlot) {
+      updatedAllDay = false;
+    }
+
+    // reflect the move immediately on screen- need updating
+    setEvents((prev) =>
+      prev.map((ev) =>
+        ev.id === event.id ? { ...ev, start, end, allDay: updatedAllDay } : ev
+      )
+    );
+
+    
+    updateAppointment(event.id, { date: start }).catch((err) => {
+      console.error("Failed to save new appointment time:", err);
+      
+      setEvents((prev) =>
+        prev.map((ev) =>
+          ev.id === event.id ? { ...ev, start: event.start, end: event.end } : ev
+        )
+      );
+    });
+  };
+
+  const resizeEvent = ({ event, start, end }) => {
+    
+    setEvents((prev) =>
+      prev.map((ev) => (ev.id === event.id ? { ...ev, start, end } : ev))
+    );
+
+    updateAppointment(event.id, { date: start }).catch((err) => {
+      console.error("Failed to save resized appointment:", err);
+      setEvents((prev) =>
+        prev.map((ev) =>
+          ev.id === event.id ? { ...ev, start: event.start, end: event.end } : ev
+        )
+      );
+    });
+  };
+
+  if (loading) return <p>Loading calendar...</p>;
+  if (error) return <p>Error: {error}</p>;
+
 
   return (
     <div className="calendar-app">
