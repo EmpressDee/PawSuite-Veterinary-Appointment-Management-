@@ -6,6 +6,7 @@ import appointmentRoute from "./routes/appointmentRoute.js";
 import petRoute from "./routes/petRoute.js";
 import clientRoute from "./routes/clientRoute.js";
 import {errorHandler} from "./middleware/errorHandling.js"
+import authRoutes from "./routes/authRoutes.js";
 
 
 const app = express ();
@@ -18,7 +19,7 @@ connectDB();
 
 app.use(express.json());
 
-// app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 app.use('/api/appointments', appointmentRoute);
 app.use('/api/clients',  clientRoute);
 app.use('/api/pets',  petRoute);
