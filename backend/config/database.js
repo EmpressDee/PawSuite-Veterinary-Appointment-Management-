@@ -179,7 +179,7 @@ const dataDB = async () => {
 
     const appointments = await Appointment.insertMany([
   {
-    date: relativeDate(0), // todays date
+    date: relativeDate(-2),
     visitType: "Wellness/Vaccines",
     reason: "Annual checkup",
     pet: pets[0]._id,
@@ -187,7 +187,7 @@ const dataDB = async () => {
     status: "Planned",
   },
   {
-    date: relativeDate(1), 
+    date: relativeDate(-1), //previous
     visitType: "Wellness/Vaccines",
     reason: "Vaccination",
     pet: pets[1]._id,
@@ -195,7 +195,7 @@ const dataDB = async () => {
     status: "Confirmed",
   },
   {
-    date: relativeDate(2),
+    date: relativeDate(0), //todays date
     visitType: "Nurse",
     reason: "Nail trim",
     pet: pets[2]._id,
@@ -203,7 +203,7 @@ const dataDB = async () => {
     status: "Planned",
   },
   {
-    date: relativeDate(-1), // previous day
+    date: relativeDate(0), 
     reason: "Skin issue follow-up",
     visitType: "Sick",
     pet: pets[3]._id,
@@ -211,7 +211,7 @@ const dataDB = async () => {
     status: "Cancelled",
   },
   {
-    date: relativeDate(3),
+    date: relativeDate(1),
     reason: "Spay/neuter consult",
     visitType: "Wellness/Vaccines",
     pet: pets[4]._id,
@@ -219,7 +219,7 @@ const dataDB = async () => {
     status: "Planned",
   },
   {
-    date: relativeDate(-2),
+    date: relativeDate(1),
     reason: "Bloodwork",
     visitType: "Nurse",
     pet: pets[5]._id,
@@ -227,7 +227,7 @@ const dataDB = async () => {
     status: "Confirmed",
   },
   {
-    date: relativeDate(4),
+    date: relativeDate(2),
     reason: "Shedding check",
     visitType: "Sick",
     pet: pets[6]._id,
@@ -235,7 +235,7 @@ const dataDB = async () => {
     status: "Planned",
   },
   {
-    date: relativeDate(5),
+    date: relativeDate(3),
     reason: "Ear infection",
     visitType: "Sick",
     pet: pets[7]._id,
@@ -243,7 +243,7 @@ const dataDB = async () => {
     status: "Planned",
   },
    {
-    date: relativeDate(3),
+    date: relativeDate(4),
     reason: "Not eating",
     visitType: "Sick",
     pet: pets[9]._id,
@@ -251,7 +251,7 @@ const dataDB = async () => {
     status: "Planned",
   },
    {
-    date: relativeDate(-1),
+    date: relativeDate(5),
     reason: "post op check",
     visitType: "Recheck",
     pet: pets[10]._id,
@@ -259,7 +259,7 @@ const dataDB = async () => {
     status: "Cancelled",
   },
    {
-    date: relativeDate(3),
+    date: relativeDate(6),
     reason: "Annual visit",
     visitType: "Wellness/Vaccines",
     pet: pets[11]._id,
@@ -267,7 +267,7 @@ const dataDB = async () => {
     status: "Confirmed",
   },
    {
-    date: relativeDate(6),
+    date: relativeDate(7),
     reason: "teeth trim",
     visitType: "Nurse",
     pet: pets[12]._id,
