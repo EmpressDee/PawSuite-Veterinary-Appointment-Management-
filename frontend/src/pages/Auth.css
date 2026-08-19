@@ -1,0 +1,157 @@
+/* Calm clinical teal palette, shared by Login and Register */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eaf4f3; /* pale teal wash */
+  padding: 24px;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  border: 1px solid #c9dedb;
+  border-radius: 12px;
+  padding: 40px 36px;
+  box-shadow: 0 10px 30px rgba(31, 45, 44, 0.08);
+}
+
+.auth-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.auth-brand svg {
+  width: 26px;
+  height: 26px;
+}
+
+.auth-brand span {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #2a7c76;
+  letter-spacing: 0.2px;
+}
+
+.auth-title {
+  margin: 0 0 6px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2d2c;
+}
+
+.auth-subtitle {
+  margin: 0 0 24px;
+  font-size: 0.9rem;
+  color: #5c716e;
+  line-height: 1.4;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2a7c76;
+  margin-bottom: 6px;
+  margin-top: 16px;
+}
+
+.auth-label:first-of-type {
+  margin-top: 0;
+}
+
+.auth-input {
+  border: 1px solid #c9dedb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  color: #1f2d2c;
+  background: #fbfefe;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.auth-input:focus {
+  border-color: #2a7c76;
+  box-shadow: 0 0 0 3px rgba(42, 124, 118, 0.15);
+}
+
+.auth-select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #2a7c76 50%),
+    linear-gradient(135deg, #2a7c76 50%, transparent 50%);
+  background-position: calc(100% - 18px) center, calc(100% - 13px) center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.auth-button {
+  margin-top: 28px;
+  padding: 11px;
+  border: none;
+  border-radius: 8px;
+  background: #2a7c76;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.auth-button:hover:not(:disabled) {
+  background: #23675f;
+}
+
+.auth-button:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+.auth-button:disabled {
+  background: #9dbdb9;
+  cursor: not-allowed;
+}
+
+.auth-error {
+  background: #fbe9e7;
+  border: 1px solid #e3b2ac;
+  color: #a13f34;
+  font-size: 0.85rem;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.auth-footer {
+  margin: 20px 0 0;
+  font-size: 0.85rem;
+  text-align: center;
+  color: #5c716e;
+}
+
+.auth-footer a {
+  color: #2a7c76;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+.auth-loading {
+  text-align: center;
+  color: #5c716e;
+  margin-top: 60px;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
