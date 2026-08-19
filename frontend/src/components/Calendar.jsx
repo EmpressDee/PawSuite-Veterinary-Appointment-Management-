@@ -4,6 +4,7 @@ import {Calendar, dateFnsLocalizer} from "react-big-calendar";
 import * as dragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
 import { format, parse, startOfWeek, getDay } from "date-fns";
 import enUS from "date-fns/locale/en-US";
+import { getAppointments, updateAppointment } from "../api/appointments.js";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
@@ -15,11 +16,6 @@ const locales = {
 };
 
 const localizer = dateFnsLocalizer({
-  format,
-  parse,
-  startOfWeek,
-  getDay,
-  locales,
 });
 
 const DnDCalendar = dragAndDrop.default.default(Calendar);
