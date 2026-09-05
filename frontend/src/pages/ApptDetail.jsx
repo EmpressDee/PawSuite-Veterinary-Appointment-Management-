@@ -30,24 +30,29 @@ function AppointmentDetail() {
       <Link to="/">← Back to Home</Link>
       <h1>Appointment Details</h1>
 
-      <section>
-        <h2>Visit Info</h2>
-        <p>Date: {new Date(appointment.date).toLocaleDateString()}</p>
+      <section className="detail-card">
+        <h2 className="detail-card-heading">Visit Info</h2>
+        <p>
+          <span className="detail-label">Date:</span>{" "}
+          {new Date(appointment.date).toLocaleDateString()}
+        </p>
         <p>Visit Type: {appointment.visitType}</p>
         <p>Reason: {appointment.reason}</p>
         <p>Status: {appointment.status}</p>
       </section>
 
-      <section>
-        <h2>Pet</h2>
+      <section className="detail-card">
+        <h2 className="detail-card-heading">Pet</h2>
         <p>Name: {appointment.pet?.name}</p>
         <p>Species: {appointment.pet?.species}</p>
         <p>Breed: {appointment.pet?.breed}</p>
       </section>
 
-      <section>
-        <h2>Client</h2>
-        <p>Name: {appointment.client?.firstName} {appointment.client?.lastName}</p>
+      <section className="detail-card">
+        <h2 className="detail-card-heading">Client</h2>
+        <p>
+          Name: {appointment.client?.firstName} {appointment.client?.lastName}
+        </p>
         <p>Phone: {appointment.client?.phone}</p>
         <p>Email: {appointment.client?.email}</p>
       </section>
