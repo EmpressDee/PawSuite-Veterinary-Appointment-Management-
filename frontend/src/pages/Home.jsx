@@ -6,6 +6,7 @@ import SearchBar from "../components/SearchBar.jsx";
 import NavBar from "../components/NavBar.jsx";
 import { Dog, Cat, Rabbit, PawPrint } from "lucide-react";
 import { Link } from "react-router";
+// import ApptCalendar from "../components/calendar.jsx";
 
 function HomePage() {
   const [appointments, setAppointments] = useState([]);
@@ -90,10 +91,11 @@ function HomePage() {
   return (
     <div className="app">
       <header className="page-header">
-        <h1>Schedule</h1>
+        <h1>Appointments</h1>
         <p className="page-subtitle">View and manage upcoming appointments</p>
         <SearchBar filterText={filterText} setFilterText={setFilterText} />
       </header>
+      {/* <ApptCalendar /> */}
 
       {/* create appt container  */}
       {/* Need to fix the dates to show in order...maybe use .sort() method */}

@@ -16,6 +16,7 @@
 
 .appt-card:hover {
     border-color: #0F6E56;
+    background: #FAFAF9;
 }
 
 .appt-card-content {
@@ -66,4 +67,8 @@
 .badge-default {
   background: #F1EFE8;
   color: #5F5E5A;
+}
+
+.day-heading {
+  margin-bottom: 12px;
 }
