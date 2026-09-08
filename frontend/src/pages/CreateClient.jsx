@@ -16,38 +16,52 @@ export default function CreateClient() {
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    setClients([...clients, clientForm]);
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="firstName"
-        placeholder="First Name"
-        onChange={handleChange}
-      />
+    <>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="firstName"
+          placeholder="First Name"
+          onChange={handleChange}
+        />
 
-      <input
-        type="text"
-        name="lastName"
-        placeholder="Last Name"
-        onChange={handleChange}
-      />
+        <input
+          type="text"
+          name="lastName"
+          placeholder="Last Name"
+          onChange={handleChange}
+        />
 
-      <input 
-      type="text"
-      name="phone"
-      placeholder="xxx-xxx-xxxx"
-      onChange={handleChange}
-      />
+        <input
+          type="text"
+          name="phone"
+          placeholder="xxx-xxx-xxxx"
+          onChange={handleChange}
+        />
 
-      <input 
-      type="email"
-      name="email"
-      placeholder="email@address.com"
-      onChange={handleChange}
-       />
+        <input
+          type="email"
+          name="email"
+          placeholder="email@address.com"
+          onChange={handleChange}
+        />
 
-       <button>Submit</button>
-    </form>
+        <button type="submit">Create Client</button>
+      </form>
+
+
+      {clients.map((client) => {
+        return <div>
+            key={client.id}
+            {client.firstName}
+            {client.lastName}
+            
+            </div>;
+      })}
+    </>
   );
 }

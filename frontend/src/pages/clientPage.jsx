@@ -2,6 +2,7 @@ import "./clients.css";
 import { useState, useEffect } from "react";
 import { getClients } from "../api/clients";
 import { Mail, Phone } from "lucide-react";
+import CreateClient from "./CreateClient";
 
 export default function Clients() {
   const [clients, setClients] = useState([]);
@@ -30,6 +31,7 @@ export default function Clients() {
       </header>
 
       <main className="clients-container">
+        {/* <CreateClient/> */}
         {clients.map((client) => (
           <div key={client._id} className="client-card">
             <div className="client-avatar">
