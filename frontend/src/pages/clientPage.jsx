@@ -28,6 +28,7 @@ export default function Clients() {
       <header className="page-header">
         <h1>Clients</h1>
         <p className="page-subtitle">Browse all clients</p>
+        <button type="submit">Add New Client</button>
       </header>
 
       <main className="clients-container">
