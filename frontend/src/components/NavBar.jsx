@@ -10,7 +10,7 @@ export default function NavBar() {
             <NavLink className="nav-link" to="/"><CalendarDays size={20} /> Appointments</NavLink>
             <NavLink className="nav-link" to="/clients"><UsersRound size={20} /> Clients</NavLink>
             <NavLink className="nav-link" to="/pets"><PawPrint size={20} /> Pets</NavLink>
-            <NavLink className="nav-link" to="/login"><LogIn size={20}/> User Login</NavLink>
+            {/* <NavLink className="nav-link" to="/login"><LogIn size={20}/> User Login</NavLink> */}
             {/* <NavLink className="nav-link" to="/register">Create Account</NavLink> */}
         </nav>
     );
